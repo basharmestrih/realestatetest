@@ -1,0 +1,66 @@
+{
+  "welcome": "Welcome",
+  "language": "en",
+  "labels": {
+    "or": "Or",
+    "login": "Login",
+    "login_with_Google": "Login with Google",
+    "sign_in": "Sign-in",
+    "logout": "Logout",
+    "sign_in_fb": "Sign-in with Facebook",
+    "sign_in_google": "Sign-in with Google",
+    "login_to_continue": "Login to Continue",
+    "email": "Email",
+    "password": "Password",
+    "remember_me": "Remember me",
+    "forgot": "Forgot?",
+    "dont_have_an_account": "Don't have an account?",
+    "register": "Register",
+    "register_to_continue_using_the_app": "Register to continue using the app",
+    "user_name": "User Name",
+    "register_with_Google": "Register with Google",
+    "welcome_to": "Welcome to"
+  },
+  "hint_text": {
+    "enter_your_email": "Enter your email",
+    "enter_your_password": "Enter your password",
+    "enter_your_user_name": "Enter your user name",
+    "enter_password_confirmation": "Enter password confirmation"
+  },
+  "error": {
+    "email_must_not_be_empty": "Email must not be empty",
+    "invalid_email_format": "Invalid email format",
+    "name_must_not_be_empty": "Name must not be empty",
+    "name_is_too_short": "Name is too short",
+    "invalid_name": "Enter a valid name",
+    "password_must_not_be_empty": "Password must not be empty",
+    "password_too_short": "Password is too short",
+    "password_uppercase_required": "Password must contain at least one uppercase letter",
+    "password_lowercase_required": "Password must contain at least one lowercase letter",
+    "password_number_required": "Password must contain at least one number",
+    "password_special_char_required": "Password must contain at least one special character",
+    "phone_must_not_be_empty": "Phone number must not be empty",
+    "invalid_phone_number": "Enter a valid phone number",
+    "number_must_not_be_empty": "Number must not be empty",
+    "invalid_number": "Enter a valid number",
+    "reset_code_must_not_be_empty": "Reset code must not be empty",
+    "reset_code_invalid_length": "Reset code must be 8 characters long",
+    "must_not_be_empty": "It must not be empty",
+    "please_confirm_your_password": "Please confirm your password",
+    "passwords_do_not_match": "Passwords do not match"
+  },
+  "buttons": {
+    "login": "Login",
+    "register": "Register",
+    "sign_up": "Sign up",
+
+    "sign_in": "Sign-in",
+    "logout": "Logout",
+    "sign_in_fb": "Sign-in with Facebook",
+    "sign_in_google": "Sign-in with Google"
+  },
+  "Feel free to post your properties for sale with us!": "Feel free to post your properties for sale with us!",
+  "Just contact our admins via WhatsApp, Gmail, or a phone call.": "Just contact our admins via WhatsApp, Gmail, or a phone call.",
+  "Contact Us": "Contact Us",
+  "Post Property": "Post Property"
+}
