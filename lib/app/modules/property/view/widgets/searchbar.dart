@@ -19,7 +19,7 @@ class SearchBarWithButton extends StatelessWidget {
     return Container(
       height: 50.h,
       decoration: BoxDecoration(
-        color: AppColors.lightGrey,
+        color: Theme.of(context).colorScheme.primaryContainer,
         borderRadius: BorderRadius.circular(16.r),
       ),
       padding: EdgeInsets.symmetric(horizontal: 12.w),
@@ -35,10 +35,10 @@ class SearchBarWithButton extends StatelessWidget {
                 fontSize: 17.sp,
               ),
               decoration: InputDecoration(
-                fillColor: AppColors.lightGrey,
+                fillColor: Theme.of(context).colorScheme.primaryContainer,
                 hintText: 'search_label_hint'.tr,
                 hintStyle: TextStyle(
-                fontSize: 14.sp, // Smaller font size
+                fontSize: 12.sp, // Smaller font size
                 color:AppColors.grey, // Custom hint color
               ),
                 prefixIcon: const Icon(Icons.search),
@@ -67,7 +67,8 @@ class SearchBarWithButton extends StatelessWidget {
                 ),
               ),
               buttonWidth: 80.w,
-              child: Text('button_search'.tr, style: Theme.of(context).textTheme.labelSmall,),
+              child: Text('button_search'.tr, style: Theme.of(context).textTheme.labelSmall!
+              .copyWith(color:AppColors.black),),
             ),
           ),
         ],

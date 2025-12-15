@@ -8,9 +8,8 @@ class MainbarController extends GetxController {
 
   var selectedIndex = 0.obs;
 
-  // Function to check if the current user is an admin
   Future<bool> checkIfUserIsAdmin() async {
-    return await authController.isAdmin(authController); // Call the isAdmin function
+    return await authController.isAdmin(authController); 
   }
 
   // Change body by index

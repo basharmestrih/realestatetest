@@ -20,7 +20,7 @@ class OthersManager extends StatelessWidget {
     final OthersManagerController controller = Get.put(OthersManagerController());
 
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       appBar: CustomAppBar(),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
@@ -32,7 +32,7 @@ class OthersManager extends StatelessWidget {
               Text(
                             LocaleKeys.add_others_card.tr,
                             style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                                  color: AppColors.fontcolor,
+                                  color: Theme.of(context).colorScheme.error,
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),

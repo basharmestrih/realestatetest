@@ -15,11 +15,13 @@ class LocationAddressWidget extends StatelessWidget {
       children: [
         Icon(Icons.location_on_outlined, size:26.sp, color: AppColors.red,),
         Text(location,
-             style: Theme.of(context).textTheme.bodyMedium!.copyWith(color:AppColors.fontcolor),
+             style: Theme.of(context).textTheme.bodyMedium!
+             .copyWith(color:Theme.of(context).colorScheme.onPrimaryContainer,),
             ),
         SizedBox(width:10.w),
         Text(address,
-             style: Theme.of(context).textTheme.bodyMedium!.copyWith(color:AppColors.grey),),
+             style: Theme.of(context).textTheme.bodyMedium!
+             .copyWith(color:AppColors.grey),),
       ],
     );
   }

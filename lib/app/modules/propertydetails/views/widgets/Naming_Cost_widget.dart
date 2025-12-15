@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../core/theme/colors.dart';
 
 class TitlePriceRow extends StatelessWidget {
   final String title;
@@ -16,7 +19,10 @@ class TitlePriceRow extends StatelessWidget {
              style: Theme.of(context).textTheme.titleLarge,
             ),
         Text(price,
-             style: Theme.of(context).textTheme.labelLarge,),
+             style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                fontSize: 22.r,
+                color:AppColors.numbersfontcolor
+              ),),
       ],
     );
   }

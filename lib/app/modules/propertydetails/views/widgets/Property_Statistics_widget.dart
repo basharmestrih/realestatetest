@@ -78,7 +78,7 @@ class FeatureCard extends StatelessWidget {
       decoration: BoxDecoration(
         //color: Colors.white,
         border: Border.all(
-          color: const Color.fromARGB(255, 227, 223, 223),
+          color:Theme.of(context).colorScheme.error,
           width: 3,
         ),
         borderRadius: BorderRadius.circular(12),
@@ -86,7 +86,7 @@ class FeatureCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, size: 38, color: Colors.black87),
+          Icon(icon, size: 38, color: Theme.of(context).colorScheme.onPrimaryContainer,),
           const SizedBox(height: 6),
           Text(
             label,

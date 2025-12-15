@@ -13,7 +13,7 @@ class SectionTitle extends StatelessWidget {
       title,
       style: Theme.of(context).textTheme.titleLarge?.copyWith(
             fontWeight: FontWeight.bold,
-            color: AppColors.fontcolor,
+            color:Theme.of(context).colorScheme.error,
           ),
     );
   }

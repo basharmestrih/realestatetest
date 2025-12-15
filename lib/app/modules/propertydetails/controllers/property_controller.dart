@@ -41,6 +41,7 @@ class PropertyDetailsController extends GetxController {
     isFurnitured = args['isFurnitured'] ?? false;
     mainFeatures = List<String>.from(args['mainFeatures'] ?? []);
     imgUrls = List<String>.from(args['imgUrls'] ?? []);
+
   }
 
   Future<void> openWhatsApp(String phoneNumber, ) async {

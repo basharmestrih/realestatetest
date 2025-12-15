@@ -9,18 +9,20 @@ class ServiceCard extends StatelessWidget {
   final String title;
   final IconData icon;
   final String imgUrl;
+  final int index;
 
   const ServiceCard({
     super.key,
     required this.title,
     required this.icon,
     required this.imgUrl,
+    required this.index,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-     onTap: () => Get.find<MainbarController>().changeBody(1),
+     onTap: () => Get.find<MainbarController>().changeBody(index),
 
       child: Container(
         width: double.infinity,

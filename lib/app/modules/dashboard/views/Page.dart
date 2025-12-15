@@ -15,7 +15,6 @@ class DashBoardPage extends GetView<DashBoardController> {
         ? [
             {'name': 'إضافة منزل', 'icon': Icons.add_home},
             {'name': 'حذف منزل', 'icon': Icons.delete},
-            {'name': 'عرض منزل', 'icon': Icons.visibility},
             {'name': 'إضافة مهندس', 'icon': Icons.engineering},
             {'name': 'حذف مهندس', 'icon': Icons.delete_sweep_outlined},
 
@@ -38,7 +37,7 @@ class DashBoardPage extends GetView<DashBoardController> {
   Widget build(BuildContext context) {
     return Scaffold(
       //extendBody: true,
-      backgroundColor: AppColors.primary,
+      backgroundColor:  Theme.of(context).colorScheme.primary,
       appBar: CustomAppBar(),
       body: Padding(
         padding: EdgeInsets.only(right:5.w,left:5.w,top:20.h),

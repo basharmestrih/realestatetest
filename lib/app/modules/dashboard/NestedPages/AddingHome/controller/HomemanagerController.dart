@@ -20,6 +20,8 @@ class PropertyManagerController extends GetxController {
   final bathroomsController = TextEditingController();
   final areaController = TextEditingController();
   final addressController = TextEditingController();
+  bool isFurnitured = false;
+
   final locationController = TextEditingController();
   final floorsNumberController = TextEditingController();
   final groundDistanceController = TextEditingController();
@@ -32,6 +34,8 @@ class PropertyManagerController extends GetxController {
   List<File> selectedImages = [];
   File? selectedVideo;
   bool showOnTimeline = false;
+  bool forSell = false;
+  bool forRent = false;
 
   // -------------------- States --------------------
   RxBool isLoading = false.obs;
@@ -87,6 +91,21 @@ class PropertyManagerController extends GetxController {
     showOnTimeline = value;
     update();
   }
+  
+void setForSell(bool value) {
+  forSell = value;
+  update();
+}
+
+void setForRent(bool value) {
+  forRent = value;
+  update();
+}
+void setIsFurnitured(bool value) {
+  isFurnitured = value;
+  update();
+}
+
 
   // -------------------- File Pickers --------------------
   Future<void> pickImages() async {
@@ -133,6 +152,10 @@ class PropertyManagerController extends GetxController {
         'floors_number': floorsNumberController.text.trim(),
         'ground_distance': groundDistanceController.text.trim(),
         'building_age': buildingAgeController.text.trim(),
+        'is_sell': forSell ? "1" : "0",
+        'is_rent': forRent ? "1" : "0",
+        'is_furnitured': isFurnitured ? "1" : "0",  // ✅ added
+
       };
 
       // Features array

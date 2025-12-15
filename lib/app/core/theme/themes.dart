@@ -18,48 +18,81 @@ class AppTheme {
   // Define light theme
   static ThemeData get lightTheme {
      Get.put(LocaleService());
-     final int fontSizeAdjustment = (Get.locale?.languageCode == 'en') ? 2 : 0;
+     final int fontSizeAdjustment = (Get.locale?.languageCode == 'en') ? 0 : 0;
 
     return ThemeData(
-      //new edits
-
-
       colorScheme: ColorScheme.light(
         primary: AppColors.primary,
         secondary: AppColors.secondary,
-        surface: AppColors.surface,
-        error: AppColors.red,
+        error: AppColors.black,
         // new edits
-        primaryContainer: Colors.white, 
-        onPrimaryContainer: Colors.black,       
-
-
-
-
+        primaryContainer:AppColors.surface, 
+        onPrimaryContainer: Colors.black,  
+        onSecondaryContainer: AppColors.secondaryfontcolor, 
+        surfaceTint:AppColors.surface,
+        primaryFixed: AppColors.white,
+        
       ),
       dividerColor: AppColors.surface,
       scaffoldBackgroundColor: AppColors.primary,
       fontFamily:  primaryFont,
-      textTheme: TextTheme(
-        headlineLarge: TextStyle(fontSize: 24.r + fontSizeAdjustment,  color: AppColors.white),
-        headlineMedium: TextStyle(fontSize: 22.r + fontSizeAdjustment, fontWeight: FontWeight.w600, color: AppColors.white),
-        bodyLarge: TextStyle(fontSize: 33.r + fontSizeAdjustment, color: AppColors.fontcolor,fontWeight: FontWeight.w900),
-        bodyMedium: TextStyle(fontSize: 16.r + fontSizeAdjustment, color: AppColors.secondaryfontcolor),
-        titleLarge:TextStyle(fontSize: 21.r + fontSizeAdjustment, color: AppColors.fontcolor,fontWeight: FontWeight.bold ),
-        bodySmall: TextStyle(fontSize: 13.r + fontSizeAdjustment, color: AppColors.secondaryfontcolor,fontWeight: FontWeight.w800),
-
-        
-
-        titleMedium:TextStyle(fontSize: 16.r + fontSizeAdjustment, color: AppColors.fontcolor,fontWeight: FontWeight.w800 ),
-        titleSmall: TextStyle(fontSize: 15.r + fontSizeAdjustment, color: AppColors.fontcolor),
-        // for numbers
-        labelLarge: TextStyle(fontSize: 28.r + fontSizeAdjustment, fontWeight: FontWeight.bold, color: AppColors.numbersfontcolor),
-        labelMedium: TextStyle(fontSize: 26.r + fontSizeAdjustment, fontWeight: FontWeight.bold, color:AppColors.secondaryfontcolor),
-        labelSmall: TextStyle(fontSize: 12.r + fontSizeAdjustment, fontWeight: FontWeight.bold, color: AppColors.fontcolor),
-
-      ),
+   textTheme: TextTheme(
+  headlineLarge: TextStyle(
+    fontSize: (24.r * 0.83) + fontSizeAdjustment,
+    color: AppColors.white,
+  ),
+  headlineMedium: TextStyle(
+    fontSize: (22.r * 0.83) + fontSizeAdjustment,
+    fontWeight: FontWeight.w600,
+    color: AppColors.white,
+  ),
+  bodyLarge: TextStyle(
+    fontSize: (33.r * 0.83) + fontSizeAdjustment,
+    color: AppColors.fontcolor,
+    fontWeight: FontWeight.w900,
+  ),
+  bodyMedium: TextStyle(
+    fontSize: (16.r * 0.83) + fontSizeAdjustment,
+    color: AppColors.secondaryfontcolor,
+  ),
+  titleLarge: TextStyle(
+    fontSize: (26.r * 0.83) + fontSizeAdjustment,
+    color: AppColors.fontcolor,
+    fontWeight: FontWeight.bold,
+  ),
+  bodySmall: TextStyle(
+    fontSize: (13.r * 0.83) + fontSizeAdjustment,
+    color: AppColors.secondaryfontcolor,
+    fontWeight: FontWeight.w800,
+  ),
+  titleMedium: TextStyle(
+    fontSize: (14.r * 0.83) + fontSizeAdjustment,
+    color: AppColors.fontcolor,
+    fontWeight: FontWeight.w800,
+  ),
+  titleSmall: TextStyle(
+    fontSize: (15.r * 0.83) + fontSizeAdjustment,
+    color: AppColors.fontcolor,
+  ),
+  // for numbers
+  labelLarge: TextStyle(
+    fontSize: (28.r * 0.83) + fontSizeAdjustment,
+    fontWeight: FontWeight.bold,
+    color: AppColors.numbersfontcolor,
+  ),
+  labelMedium: TextStyle(
+    fontSize: (26.r * 0.83) + fontSizeAdjustment,
+    fontWeight: FontWeight.bold,
+    color: AppColors.secondaryfontcolor,
+  ),
+  labelSmall: TextStyle(
+    fontSize: (12.r * 0.83) + fontSizeAdjustment,
+    fontWeight: FontWeight.bold,
+    color: AppColors.fontcolor,
+  ),
+),
+ 
       appBarTheme: AppBarTheme(
-        color: AppColors.primary,
         elevation: 2,
         iconTheme: IconThemeData(color: AppColors.surface),
         titleTextStyle: TextStyle(fontSize: 22.r, fontWeight: FontWeight.bold, color: AppColors.surface),
@@ -67,7 +100,7 @@ class AppTheme {
       // ✅ Custom Checkbox Theme
     checkboxTheme: CheckboxThemeData(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(6.r), // Rounded corners
+        borderRadius: BorderRadius.circular(6.r), 
       ),
       side: BorderSide(
         width: 2.w, // Thicker border
@@ -81,7 +114,6 @@ class AppTheme {
       }),
       checkColor: MaterialStateProperty.all(Colors.black), // Checkmark color
     ),
-  
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.responsiveButtonColor,
@@ -96,7 +128,7 @@ class AppTheme {
         foregroundColor: AppColors.surface,
       ),
       //new edits
-      cardTheme: CardTheme(
+      /*cardTheme: CardTheme(
       color: Colors.grey[200],
       shadowColor: Colors.black12,
       elevation: 4,
@@ -104,7 +136,7 @@ class AppTheme {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
-    ),
+    ),*/
     //new edits
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: Colors.grey[100],
@@ -116,8 +148,6 @@ class AppTheme {
       type: BottomNavigationBarType.fixed,
       showUnselectedLabels: true,
     ),
-  
-  
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: AppColors.surface,
@@ -130,79 +160,169 @@ class AppTheme {
         backgroundColor: AppColors.primary,
         contentTextStyle: TextStyle(color: AppColors.surface),
       ),
-      dialogTheme: DialogTheme(
+      /*dialogTheme: DialogTheme(
         backgroundColor: AppColors.surface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.r)),
         titleTextStyle: TextStyle(fontSize: 20.r, fontWeight: FontWeight.bold, color: AppColors.primary),
         contentTextStyle: TextStyle(fontSize: 16.r, color: AppColors.primary),
-      ),
+      ),*/
     );
   }
 
   // Define dark theme
-  static ThemeData get darkTheme {
-    return ThemeData(
-      colorScheme: ColorScheme.dark(
-        primary: AppColors.primary,
-        secondary: AppColors.secondary,
-        surface: AppColors.surface,
-        onSurface: Colors.white,
+static ThemeData get darkTheme {
+  return ThemeData(
+    colorScheme: ColorScheme.dark(
+      primary: Colors.black,
+      secondary: AppColors.secondary,
+      error: AppColors.secondary,
+      primaryContainer:Color(0xFF1A1A1A),
+      onPrimaryContainer: Colors.white,
+       onSecondaryContainer: AppColors.white ,
+      surfaceTint:Colors.black,
+      primaryFixed: const Color.fromARGB(255, 109, 108, 108).withOpacity(0.1),
+    ),
+    scaffoldBackgroundColor: Colors.black,
+    fontFamily: LocaleService.instance.fontType,
+
+    textTheme: TextTheme(
+      headlineLarge: TextStyle(
+        fontSize: (24.r * 0.83),
+        color: Colors.white,
       ),
-      scaffoldBackgroundColor: Colors.black,
-      fontFamily: LocaleService.instance.fontType,
-      textTheme: TextTheme(
-        headlineLarge: TextStyle(fontSize: 32.r, fontWeight: FontWeight.bold, color: Colors.white),
-        headlineMedium: TextStyle(fontSize: 28.r, fontWeight: FontWeight.w600, color: Colors.white),
-        bodyLarge: TextStyle(fontSize: 18.r, color: Colors.white),
-        bodyMedium: TextStyle(fontSize: 16.r, color: AppColors.secondary),
-        bodySmall: TextStyle(fontSize: 14.r, color: AppColors.secondary.withOpacity(0.7)),
-        labelLarge: TextStyle(fontSize: 16.r, fontWeight: FontWeight.bold, color: AppColors.primary),
+      headlineMedium: TextStyle(
+        fontSize: (22.r * 0.83),
+        fontWeight: FontWeight.w600,
+        color: Colors.white,
       ),
-      appBarTheme: AppBarTheme(
-        color: AppColors.primary,
-        elevation: 2,
-        iconTheme: IconThemeData(color: Colors.white),
-        titleTextStyle: TextStyle(fontSize: 20.r, fontWeight: FontWeight.bold, color: Colors.white),
+      bodyLarge: TextStyle(
+        fontSize: (33.r * 0.83),
+        color: Colors.white,
+        fontWeight: FontWeight.w900,
       ),
-      
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.primary,
-          foregroundColor: Colors.black,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
-          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
-          textStyle: TextStyle(fontSize: 16.r, fontWeight: FontWeight.bold),
+      bodyMedium: TextStyle(
+        fontSize: (16.r * 0.83),
+        color: AppColors.secondaryfontcolor.withOpacity(0.8),
+      ),
+      titleLarge: TextStyle(
+        fontSize: (26.r * 0.83),
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+      ),
+      bodySmall: TextStyle(
+        fontSize: (13.r * 0.83),
+        color: AppColors.secondaryfontcolor.withOpacity(0.8),
+        fontWeight: FontWeight.w800,
+      ),
+      titleMedium: TextStyle(
+        fontSize: (14.r * 0.83),
+        color: Colors.white,
+        fontWeight: FontWeight.w800,
+      ),
+      titleSmall: TextStyle(
+        fontSize: (15.r * 0.83),
+        color: Colors.white,
+      ),
+      labelLarge: TextStyle(
+        fontSize: (28.r * 0.83),
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+      ),
+      labelMedium: TextStyle(
+        fontSize: (26.r * 0.83),
+        fontWeight: FontWeight.bold,
+        color: Colors.white70,
+      ),
+      labelSmall: TextStyle(
+        fontSize: (12.r * 0.83),
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+      ),
+    ),
+
+    appBarTheme: AppBarTheme(
+      color: Colors.black,
+      elevation: 2,
+      iconTheme: IconThemeData(color: Colors.white),
+      titleTextStyle: TextStyle(
+        fontSize: 22.r,
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+      ),
+    ),
+
+    checkboxTheme: CheckboxThemeData(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(6.r),
+      ),
+      side: BorderSide(
+        width: 2.w,
+        color: Colors.white,
+      ),
+      fillColor: MaterialStateProperty.resolveWith((states) {
+        if (states.contains(MaterialState.selected)) {
+          return AppColors.secondary;
+        }
+        return Colors.transparent;
+      }),
+      checkColor: MaterialStateProperty.all(Colors.white),
+    ),
+
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: AppColors.secondary,
+        foregroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12.r),
+        ),
+        padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 12.h),
+        textStyle: TextStyle(
+          fontFamily: LocaleService.instance.fontType,
+          fontSize: 16.r,
+          fontWeight: FontWeight.bold,
         ),
       ),
-      floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: AppColors.primary,
-        foregroundColor: Colors.black,
+    ),
+
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: AppColors.secondary,
+      foregroundColor: Colors.white,
+    ),
+
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: Colors.black,
+      elevation: 8,
+      selectedItemColor: Colors.white,
+      unselectedItemColor: Colors.white70,
+      selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+      unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+      type: BottomNavigationBarType.fixed,
+      showUnselectedLabels: true,
+    ),
+
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: Colors.white.withOpacity(0.1),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10.r),
+        borderSide: BorderSide.none,
       ),
-      cardTheme: CardTheme(
-        color: AppColors.surface.withOpacity(0.1),
-        shadowColor: AppColors.primary.withOpacity(0.4),
-        elevation: 4,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10.r),
+        borderSide: BorderSide(color: AppColors.secondary),
       ),
-      inputDecorationTheme: InputDecorationTheme(
-        filled: true,
-        fillColor: AppColors.surface.withOpacity(0.1),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.r), borderSide: BorderSide.none),
-        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10.r), borderSide: BorderSide(color: AppColors.primary)),
-        focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10.r), borderSide: BorderSide(color: AppColors.primary, width: 2.w)),
-        labelStyle: TextStyle(color: AppColors.primary),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10.r),
+        borderSide: BorderSide(color: AppColors.secondary, width: 2.w),
       ),
-      snackBarTheme: SnackBarThemeData(
-        backgroundColor: AppColors.primary,
-        contentTextStyle: TextStyle(color: Colors.white),
-      ),
-      dialogTheme: DialogTheme(
-        backgroundColor: AppColors.surface.withOpacity(0.1),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.r)),
-        titleTextStyle: TextStyle(fontSize: 20.r, fontWeight: FontWeight.bold, color: Colors.white),
-        contentTextStyle: TextStyle(fontSize: 16.r, color: Colors.white),
-      ),
-      
-    );
-  }
+      labelStyle: TextStyle(color: Colors.white),
+    ),
+
+    snackBarTheme: SnackBarThemeData(
+      backgroundColor: Colors.black,
+      contentTextStyle: TextStyle(color: Colors.white),
+    ),
+  );
+}
+
 }

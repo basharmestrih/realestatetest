@@ -18,16 +18,19 @@ final LocaleService localeService = Get.put(LocaleService());
 
 
 
+
 void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
+      Get.put(AuthController());
+
 
 
   // Set the system UI overlay style globally before running the app
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     systemNavigationBarContrastEnforced: true,
-    systemStatusBarContrastEnforced: true,
+    systemStatusBarContrastEnforced: false,
     statusBarColor: AppColors.primary, // Set your desired color here
     statusBarIconBrightness: Brightness.light, // Icon brightness (light or dark)
     systemNavigationBarColor: AppColors.primary, // Navigation bar color
@@ -63,7 +66,7 @@ void main() async {
                 systemStatusBarContrastEnforced: true,
                 statusBarColor: AppColors.primary,
                 statusBarIconBrightness: Brightness.light,
-                systemNavigationBarColor: AppColors.primary,
+                systemNavigationBarColor: AppColors.secondary,
                 systemNavigationBarIconBrightness: Brightness.light,
                 statusBarBrightness: Brightness.light,
                 systemNavigationBarDividerColor: AppColors.primary,

@@ -19,7 +19,7 @@ class PropertyManager extends StatelessWidget {
         Get.put(PropertyManagerController());
 
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       appBar: CustomAppBar(),
       body: GetBuilder<PropertyManagerController>(
         builder: (_) => Column(
@@ -36,7 +36,7 @@ class PropertyManager extends StatelessWidget {
               Text(
                             LocaleKeys.add_house_card.tr,
                             style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                                  color: AppColors.fontcolor,
+                                  color: Theme.of(context).colorScheme.onPrimaryContainer,
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),

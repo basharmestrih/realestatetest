@@ -17,27 +17,21 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       leading: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: CircleAvatar(
-          backgroundColor: Colors.white,
-          child: IconButton(
-            icon: const Icon(Icons.arrow_back, size:30,color: Colors.black),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+        child: IconButton(
+          icon:  Icon(Icons.arrow_back, size:30,color: Theme.of(context).colorScheme.error,),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       actions: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: CircleAvatar(
-            backgroundColor: Colors.white,
-            child: IconButton(
-              icon: const Icon(Icons.more_vert,  size:30,color: Colors.black),
-              onPressed: () {
-                // More options action
-              },
-            ),
+          child: IconButton(
+            icon:  Icon(Icons.more_vert,  size:30,color:Theme.of(context).colorScheme.error),
+            onPressed: () {
+              // More options action
+            },
           ),
         ),
       ],

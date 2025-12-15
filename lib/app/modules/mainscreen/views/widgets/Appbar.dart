@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_house_app/app/core/theme/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_house_app/app/core/theme/colors.dart';
@@ -19,16 +19,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: AppColors.primary,
       elevation: 0,
       leading: IconButton(
-        icon: Icon(Icons.menu, size: 28.r, color: AppColors.fontcolor),
+        icon: Icon(Icons.menu_rounded, size: 28.r, color:Theme.of(context).colorScheme.errorContainer),
         onPressed: onMenuPressed,
       ),
       title: Center(
         child: Text(
           'Sorina',
-          style: Theme.of(context).textTheme.titleLarge!.copyWith(letterSpacing: 5.sp),
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+          color:Theme.of(context).colorScheme.error,
+          fontSize: 30.sp,
+          letterSpacing: 7.sp),
           
         ),
       ),
@@ -61,22 +63,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
 
 
-class ThemeSwitchButton extends StatefulWidget {
+class ThemeSwitchButton extends StatelessWidget {
   const ThemeSwitchButton({super.key});
 
   @override
-  State<ThemeSwitchButton> createState() => _ThemeSwitchButtonState();
-}
-
-class _ThemeSwitchButtonState extends State<ThemeSwitchButton> {
-  bool isDark = false;
-
-  @override
   Widget build(BuildContext context) {
+    // Reactive theme check
+    bool isDark = Get.isDarkMode;
+
     return Container(
       padding: EdgeInsets.all(4.w),
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: Color.fromARGB(255, 77, 76, 76),
         borderRadius: BorderRadius.circular(30.r),
         boxShadow: [
           BoxShadow(
@@ -90,30 +88,36 @@ class _ThemeSwitchButtonState extends State<ThemeSwitchButton> {
         children: [
           // Light mode button
           GestureDetector(
-            onTap: () => setState(() => isDark = false),
+            onTap: () => Get.changeTheme(AppTheme.lightTheme),
             child: Container(
               padding: EdgeInsets.all(6.w),
               decoration: BoxDecoration(
-                color: isDark ? Colors.grey[300] :Colors.grey[400],
+                color: !isDark ? Colors.grey[400] : Colors.grey[300],
                 shape: BoxShape.circle,
               ),
-              child: Icon(Icons.wb_sunny,
-                  size: 20.r, color: isDark ? Colors.black45 : Colors.white),
+              child: Icon(
+                Icons.wb_sunny,
+                size: 20.r,
+                color: !isDark ? Colors.white : Colors.black45,
+              ),
             ),
           ),
           SizedBox(width: 8.w),
 
           // Dark mode button
           GestureDetector(
-            onTap: () => setState(() => isDark = true),
+            onTap: () => Get.changeTheme(AppTheme.darkTheme),
             child: Container(
               padding: EdgeInsets.all(6.w),
               decoration: BoxDecoration(
-                color: isDark ? Colors.grey[400] : Colors.grey[300],
+                color:Color.fromARGB(255, 0, 0, 0),
                 shape: BoxShape.circle,
               ),
-              child: Icon(Icons.nightlight_round,
-                  size: 20.r, color: isDark ? Colors.white : Colors.black45),
+              child: Icon(
+                Icons.nightlight_round,
+                size: 20.r,
+                color: isDark ? AppColors.secondary : AppColors.white,
+              ),
             ),
           ),
         ],

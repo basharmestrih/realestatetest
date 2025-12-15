@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:my_house_app/app/modules/othersdetails/controllers/othersdetails_controller.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
+        final controller = Get.put(OthersdetailsController());
+
     return AppBar(
-      backgroundColor: Colors.transparent,
       elevation: 0,
       automaticallyImplyLeading: false,
       title:  Text(
@@ -17,27 +20,34 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       leading: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: CircleAvatar(
-          backgroundColor: Colors.white,
-          child: IconButton(
-            icon: const Icon(Icons.arrow_back_ios_rounded, size:30,color: Colors.black),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+        child: IconButton(
+          icon:  Icon(Icons.arrow_back_ios_rounded, size:30,
+          color: Theme.of(context).colorScheme.error),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       actions: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: CircleAvatar(
-            backgroundColor: Colors.white,
-            child: IconButton(
-              icon: const Icon(Icons.share,  size:30,color: Colors.black),
-              onPressed: () {
-                // More options action
-              },
-            ),
+          child: IconButton(
+            icon:  Icon(Icons.share,  size:30,
+            color:  Theme.of(context).colorScheme.error),
+            onPressed: () {
+            final details = '''
+              ${controller.title}
+              💵 السعر: ${controller.price}
+              📍 الموقع: ${controller.location} - ${controller.address}
+
+              📖 الوصف:
+              ${controller.description}
+              ''';
+          
+            Share.share(details, subject: "تفاصيل العقار");
+          },
+           
+            
           ),
         ),
       ],

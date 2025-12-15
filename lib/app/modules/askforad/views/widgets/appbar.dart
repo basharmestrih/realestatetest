@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key});
+import '../../../../core/theme/colors.dart';
+
+class DetailedAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const DetailedAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.transparent,
       elevation: 0,
       automaticallyImplyLeading: false,
       title:  Text(
-        'manager_page_title'.tr,
+        'askforsell_title'.tr,
        style: Theme.of(context).textTheme.titleLarge,
       ),
       centerTitle: true,

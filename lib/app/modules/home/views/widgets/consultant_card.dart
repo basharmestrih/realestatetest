@@ -32,7 +32,7 @@ class ConsultantCard extends StatelessWidget {
 
           // Vertical "You need an advice"
           Positioned(
-            top: 20.h,
+            top: 14.h,
             left: 20.w,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,7 +41,7 @@ class ConsultantCard extends StatelessWidget {
                   'image_label1'.tr,
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         color: Colors.white,
-                        fontSize: 30.sp,
+                        fontSize: 25.sp,
                         fontWeight: FontWeight.bold,
                         //fontFamily: arabicFont,
                       ),
@@ -50,7 +50,7 @@ class ConsultantCard extends StatelessWidget {
                   'image_label2'.tr,
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         color: Colors.white,
-                        fontSize: 30.sp,
+                        fontSize: 25.sp,
                         fontWeight: FontWeight.bold,
                       ),
                 ),
@@ -58,14 +58,15 @@ class ConsultantCard extends StatelessWidget {
                    'image_label3'.tr,
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         color: Colors.white,
-                        fontSize: 30.sp,
+                        fontSize: 25.sp,
                         fontWeight: FontWeight.bold,
                       ),
                 ),
                 Text(
                    'image_label4'.tr,
-                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         color: Colors.white,
+                         fontSize: 25.sp,
                         fontWeight: FontWeight.bold,
                       ),
                 ),

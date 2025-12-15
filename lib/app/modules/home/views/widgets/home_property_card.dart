@@ -54,6 +54,7 @@ class HomePropertyCard extends StatelessWidget {
 
 
     return Card(
+      color:Theme.of(context).colorScheme.primaryContainer,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.r)),
       elevation: 3,
       margin: EdgeInsets.symmetric(horizontal: 15.w, vertical: 12.h),
@@ -76,8 +77,7 @@ class HomePropertyCard extends StatelessWidget {
                     name,
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: AppColors.black,
-                      fontSize: 24.sp,
+                    color:Theme.of(context).colorScheme.error,
                     ),
                   ),
                   SizedBox(height: 4.h),
@@ -94,14 +94,17 @@ class HomePropertyCard extends StatelessWidget {
                   SizedBox(height: 12.h),
 
                   // Description
-                  Text(
-                    description,
-                    style: TextStyle(
-                      fontSize: 15.sp,
-                      color: Colors.grey[850],
-                      height: 1.5,
-                    ),
-                  ),
+                 Text(
+                description,
+                style: TextStyle(
+                  fontSize: 12.sp,
+                  color: Colors.grey[600],
+                  height: 1.5,
+                ),
+                maxLines: 2, // show only 3 lines
+                overflow: TextOverflow.ellipsis,
+              ),
+
                   SizedBox(height: 16.h),
            
 
@@ -137,7 +140,7 @@ class HomePropertyCard extends StatelessWidget {
                     buttonWidth: double.infinity,
                     clickable: true,
                     onPressed: () {
-                                         Get.toNamed(
+                      Get.toNamed(
                       Routes.PROPERTYDETAILS,
                       arguments: {
                         'imgUrls': imageUrls,
@@ -161,9 +164,9 @@ class HomePropertyCard extends StatelessWidget {
                       
                     },
                     child: Text(
-                      'contact_seller_button'.tr,
+                      'show_more_button'.tr,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        
+                        color:AppColors.black,
                         letterSpacing: 0.4,
                       ),
                       textAlign: TextAlign.center,

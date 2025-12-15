@@ -24,19 +24,20 @@ class ActionCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         onTap: onTap,
         child: Padding(
-          padding: EdgeInsets.all(16.r), // Add padding for better layout
+          padding: EdgeInsets.all(16.r), 
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
                 icon,
                 size: 40.sp, // Adjust icon size
-                color: AppColors.fontcolor, // Optional: use a color from your theme
+                color: AppColors.black,
               ),
               SizedBox(height: 8.h), // Space between icon and text
               Text(
                 pagename,
-                style: Theme.of(context).textTheme.titleLarge,
+                style: Theme.of(context).textTheme.titleLarge!.copyWith
+                (color: AppColors.black,),
                 textAlign: TextAlign.center,
               ),
             ],

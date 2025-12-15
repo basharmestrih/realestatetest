@@ -14,7 +14,7 @@ class StepOne extends StatelessWidget {
   Widget build(BuildContext context) {
     return _buildCardSection(children: [
       InputField(LocaleKeys.title_label.tr, LocaleKeys.title_hint.tr, controller.titleController),
-      InputField(LocaleKeys.description_label.tr, LocaleKeys.description_hint.tr, controller.descriptionController),
+      InputField(LocaleKeys.description_label.tr, LocaleKeys.description_hint.tr, controller.descriptionController,isMultiline: true),
       InputField(LocaleKeys.price_label.tr, LocaleKeys.price_hint.tr, controller.priceController),
       InputField(LocaleKeys.area_label.tr, LocaleKeys.area_hint.tr, controller.areadistanceController),
       InputField(LocaleKeys.address_label.tr, LocaleKeys.address_hint.tr, controller.addressController),

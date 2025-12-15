@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../propertydetails/views/widgets/Property_Video_widget.dart';
+import 'Others_Video_widget.dart';
+
 class OthersDisplayWidget extends StatefulWidget {
   const OthersDisplayWidget({super.key, required this.imageUrls});
 
@@ -35,19 +38,28 @@ class _OthersDisplayWidgetState extends State<OthersDisplayWidget> {
                 ],
               ),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(16.r),
-                child: Image.network(
-                  imageUrl,
-                  width: double.infinity,
-                  height: 400.h,
-                  fit: BoxFit.cover,
-                  alignment: Alignment.center,
-                  errorBuilder: (context, error, stackTrace) => Container(
-                    height: 400.h,
-                    color: Colors.grey[300],
-                    child: Icon(Icons.image_not_supported, size: 50, color: Colors.grey),
+                  borderRadius: BorderRadius.circular(16.r),
+                child: Stack(
+                    children: [
+                      // Background Image
+                      Positioned.fill(
+                        child: Image.network(
+                          imageUrl,
+                          width: double.infinity,
+                          height: 400.h,
+                          fit: BoxFit.fitHeight,
+                          alignment: Alignment.center,
+                        ),
+                      ),
+                
+                      // ✅ Top-right video button
+                      Positioned(
+                        top: 12.h,
+                        right: 12.w,
+                        child: const OthersVideoWidget(),
+                      ),
+                    ],
                   ),
-                ),
               ),
             );
           },

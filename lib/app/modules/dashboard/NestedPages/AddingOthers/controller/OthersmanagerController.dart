@@ -32,6 +32,8 @@ class OthersManagerController extends GetxController {
   Rxn<String> selectedCategory = Rxn<String>();
   RxBool isLoading = false.obs;
   RxInt currentStep = 0.obs;
+  bool forSell = false;
+  bool forRent = false;
 
   @override
   void onInit() {
@@ -59,6 +61,15 @@ class OthersManagerController extends GetxController {
 
   void setShowOnTimeline(bool value) => showOnTimeline.value = value;
   void setSelectedCategory(String? category) => selectedCategory.value = category;
+  void setForSell(bool value) {
+  forSell = value;
+  update();
+}
+
+void setForRent(bool value) {
+  forRent = value;
+  update();
+}
 
   // --- File pickers ---
   Future<void> pickImages() async {
@@ -95,6 +106,8 @@ class OthersManagerController extends GetxController {
       'location': locationController.text.trim(),
       'floors_number': floorsNumberController.text.trim(),
       'category': selectedCategory.value ?? '',
+      'is_sell': forSell ? "1" : "0",
+      'is_rent': forRent ? "1" : "0",
     };
 
     List<String> features = [

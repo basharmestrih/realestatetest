@@ -35,7 +35,7 @@ class _HomePageState extends State<MainbarView> {
   }
   
   final MainbarController controller = Get.find();
-            final otherscontroller = Get.put(OthersController());
+    final otherscontroller = Get.put(OthersController());
 
 
 
@@ -53,19 +53,33 @@ class _HomePageState extends State<MainbarView> {
   Widget build(BuildContext context) {
     Get.put(AuthController());
   
-    return Scaffold(
-      key: _scaffoldKey,
-      extendBody: true,
-
-      appBar: CustomAppBar(
-        onMenuPressed: () => _scaffoldKey.currentState?.openDrawer(),
-      ),
-      drawer: SideMenu(onToggleLanguage: toggleLanguage),
-      body: Obx(() => bodies[controller.selectedIndex.value]),
-            bottomNavigationBar: BottomNavBar(),
-
-    
-      );
+    return WillPopScope(
+        onWillPop: () async {
+    if (controller.selectedIndex.value != 0) {
+      controller.changeBody(0); 
+      return false;             
+    }
+    return true;                
+  },
+      child: Scaffold(
+        key: _scaffoldKey,
+        extendBody: true,
+      
+        appBar: CustomAppBar(
+          onMenuPressed: () => _scaffoldKey.currentState?.openDrawer(),
+        ),
+        drawer: SideMenu(onToggleLanguage: toggleLanguage),
+        body: SafeArea(child: Obx(() => bodies[controller.selectedIndex.value])),
+      
+        bottomNavigationBar:
+         Padding(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).padding.bottom, 
+          ),
+            child: BottomNavBar(),
+            ),
+        ),
+    );
     
   }
 }

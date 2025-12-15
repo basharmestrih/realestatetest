@@ -66,7 +66,7 @@ class AuthController extends GetxController {
           box.write('user', user.toJson());
 
           Get.offAllNamed(Routes.HOME);
-          Get.snackbar('Success', message ?? 'Login successful');
+          //Get.snackbar('Success', message ?? 'Login successful');
         } else {
           Get.snackbar('Login Failed', message ?? 'Unknown error');
         }

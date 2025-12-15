@@ -28,6 +28,94 @@ class Step3FeaturesMedia extends StatelessWidget {
               controller.feature3Controller),
 
           SizedBox(height: 24.h),
+           Text(
+            "حالة المنزل", // e.g., "Timeline Settings"
+            style: TextStyle(
+              fontSize: 16.sp,
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).colorScheme.onPrimaryContainer,
+            ),
+          ),
+          SizedBox(height: 8.h),
+          /// ✅ Furnishing Section Title
+
+
+
+          /// ✅ Property Situation
+          Row(
+            children: [
+              Checkbox(
+                value: controller.forSell,
+                onChanged: (value) =>
+                    controller.setForSell(value ?? false),
+                activeColor: AppColors.secondary,
+                checkColor: AppColors.black,
+              ),
+              Expanded(
+                child: Text(
+                  LocaleKeys.for_sale_category.tr,
+                  style: TextStyle(
+                    color:  Theme.of(context).colorScheme.onPrimaryContainer,),
+                ),
+              ),
+               Checkbox(
+                value: controller.forRent,
+                onChanged: (value) =>
+                    controller.setForRent(value ?? false),
+                activeColor: AppColors.secondary,
+                checkColor: AppColors.black,
+              ),
+              Expanded(
+                child: Text(
+                  LocaleKeys.for_rent_category.tr,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onPrimaryContainer,),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 8.h,),
+          Text(
+  "اكساء المنزل", // Furnishing
+  style: TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.bold,
+    color:  Theme.of(context).colorScheme.onPrimaryContainer,
+  ),
+),
+SizedBox(height: 8.h),
+
+/// ✅ Furnishing Checkboxes
+Row(
+  children: [
+    Checkbox(
+      value: controller.isFurnitured,
+      onChanged: (value) => controller.setIsFurnitured(value ?? false),
+      activeColor: AppColors.secondary,
+      checkColor: AppColors.black,
+    ),
+    Expanded(
+      child: Text(
+        "مفروش", // Furnished
+        style: TextStyle(color:  Theme.of(context).colorScheme.onPrimaryContainer),
+      ),
+    ),
+    Checkbox(
+      value: !controller.isFurnitured,
+      onChanged: (value) =>
+          controller.setIsFurnitured(!(value ?? false)),
+      activeColor: AppColors.secondary,
+      checkColor: AppColors.black,
+    ),
+    Expanded(
+      child: Text(
+        "غير مفروش", // Not Furnished
+        style: TextStyle(color: Theme.of(context).colorScheme.onPrimaryContainer),
+      ),
+    ),
+  ],
+),
+SizedBox(height: 8.h),
 
           /// ✅ Timeline Section Title
           Text(
@@ -48,11 +136,12 @@ class Step3FeaturesMedia extends StatelessWidget {
                 onChanged: (value) =>
                     controller.setShowOnTimeline(value ?? false),
                 activeColor: AppColors.secondary,
+                checkColor: AppColors.black,
               ),
               Expanded(
                 child: Text(
                   LocaleKeys.timeline_title_label.tr,
-                  style: TextStyle(color: AppColors.fontcolor),
+                  style: TextStyle(color:  Theme.of(context).colorScheme.onPrimaryContainer),
                 ),
               ),
             ],
@@ -66,7 +155,7 @@ class Step3FeaturesMedia extends StatelessWidget {
             style: TextStyle(
               fontSize: 16.sp,
               fontWeight: FontWeight.bold,
-              color: AppColors.fontcolor,
+              color: Theme.of(context).colorScheme.onPrimaryContainer,
             ),
           ),
           SizedBox(height: 15.h),
@@ -74,18 +163,19 @@ class Step3FeaturesMedia extends StatelessWidget {
           /// ✅ Image Upload
           Row(
             children: [
-              const Icon(Icons.image, color: Colors.black),
+               Icon(Icons.image, color: Theme.of(context).colorScheme.onPrimaryContainer),
               SizedBox(width: 8.w),
               ElevatedButton(
                 onPressed: controller.pickImages,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.secondary,
+                  foregroundColor:   AppColors.black,
                 ),
                 child: Text(LocaleKeys.images_button.tr),
               ),
               SizedBox(width: 12.w),
               Text("${controller.selectedImages.length} selected",
-                  style: TextStyle(color: AppColors.fontcolor)),
+                  style: TextStyle(color:  Theme.of(context).colorScheme.onPrimaryContainer)),
             ],
           ),
           SizedBox(height: 16.h),
@@ -93,19 +183,20 @@ class Step3FeaturesMedia extends StatelessWidget {
           /// ✅ Video Upload
           Row(
             children: [
-              const Icon(Icons.video_collection, color: Colors.black),
+               Icon(Icons.video_collection, color: Theme.of(context).colorScheme.onPrimaryContainer,),
               SizedBox(width: 8.w),
               ElevatedButton(
                 onPressed: controller.pickVideo,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.secondary,
+                  foregroundColor:   AppColors.black,
                 ),
                 child: Text(LocaleKeys.videos_button.tr),
               ),
               SizedBox(width: 12.w),
               Text(
                 controller.selectedVideo != null ? "Video Selected" : "No Video",
-                style: TextStyle(color: AppColors.fontcolor),
+                style: TextStyle(color: Theme.of(context).colorScheme.onPrimaryContainer),
               ),
             ],
           ),

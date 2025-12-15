@@ -32,7 +32,7 @@ class NavButtons extends StatelessWidget {
               onPressed: isLastStep ? controller.submitOthers : controller.nextStep,
               child: controller.isLoading.value && isLastStep
                   ? CircularProgressIndicator(color: Colors.white)
-                  : Text(isLastStep ? LocaleKeys.others_submit_property.tr : LocaleKeys.next_button.tr),
+                  : Text(isLastStep ? LocaleKeys.others_submit_property.tr : LocaleKeys.next_button.tr,style: TextStyle(color: Colors.black),),
             ),
           ),
         ],

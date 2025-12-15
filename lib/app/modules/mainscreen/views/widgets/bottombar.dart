@@ -15,10 +15,10 @@ class BottomNavBar extends StatelessWidget {
         height: 65.h,
 
         // Reduced margin for wider bar
-       margin: EdgeInsets.only(left: 20.w, right: 20.w, top: 8.h,bottom:16.h),
+       margin: EdgeInsets.only(left: 20.w, right: 20.w, top: 8.h),
 
         decoration: BoxDecoration(
-           color: Colors.grey[200],
+           color: Theme.of(context).colorScheme.primaryContainer,
           borderRadius: BorderRadius.circular(24),
            //border: Border.all(color: Colors.black, width: 3),
         ),

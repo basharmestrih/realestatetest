@@ -23,7 +23,7 @@ class PropertyDetails extends StatelessWidget {
     final controller = Get.put(PropertyDetailsController());
 
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      extendBody: true,
       appBar: const CustomAppBar(),
       body: SingleChildScrollView(
         child: Column(
@@ -72,31 +72,17 @@ class PropertyDetails extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding:  EdgeInsets.symmetric(vertical: 6.h , horizontal: 40.w),
-        child: ResponsiveButton(
-          onPressed: () {
-            controller.openWhatsApp('963937138915');
-          },
-          clickable: true,
-          buttonStyle: ButtonStyle(
-            shape: WidgetStatePropertyAll(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10.r)),
-              ),
-            ),
-          ),
-          buttonWidth: Get.width / 2,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('buttons_chat_on_whatsapp'.tr),
-              SizedBox(width:30.w),
-              Icon(Icons.person ,color: AppColors.fontcolor,size: 30.sp,)
-            ],
-          ),
-        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          controller.openWhatsApp('963982083231');
+        },
+        backgroundColor: AppColors.secondary,
+        foregroundColor: Colors.black,   // icon color
+        elevation: 6,
+        child: const Icon(Icons.phone),
       ),
+
+   
     );
   }
 }

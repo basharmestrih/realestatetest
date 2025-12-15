@@ -12,7 +12,7 @@ class SplashController extends GetxController {
   }
 
   void _goToNext() async {
-    await Future.delayed(const Duration(seconds: 3)); // shorter splash delay
+    await Future.delayed(const Duration(seconds: 9)); // shorter splash delay
 
     // Check if "Remember Me" was checked and user is logged in
     final rememberMe = box.read('rememberMe') ?? false;

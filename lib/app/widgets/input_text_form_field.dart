@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:my_house_app/app/data/services/locale_service.dart' show LocaleService;
 
 import '../core/theme/colors.dart';
 import '../data/services/validator_service.dart';
@@ -24,6 +25,9 @@ class InputTextFormField extends StatelessWidget {
   final String? otherValueForValidation;
   final Widget? counter;
   final String? Function(String?)? validator;
+    final localeService = Get.find<LocaleService>();
+    
+
   InputTextFormField({
     super.key,
     this.textEditingController,
@@ -48,13 +52,16 @@ class InputTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+         Get.put(LocaleService());
+
+    
     return Container(
       width: width, // Responsive width
       height: height, // Responsive height
       margin: margin , // Responsive margin
-      //padding: padding,  // Responsive padding
+      //padding: Paddin  // Responsive padding
       child: TextFormField(
-        style: TextStyle(color: AppColors.fontcolor, fontSize: 15.sp,),
+        style: TextStyle(color: AppColors.secondary, fontSize: 12.sp,),
 
         
         
@@ -75,7 +82,7 @@ class InputTextFormField extends StatelessWidget {
   errorStyle: errorStyle,
   filled: true,
   icon: icon,
-  fillColor: Colors.transparent.withOpacity(0.2),
+  fillColor: Colors.black,
 
   helper: helper,
   counter: counter,
@@ -98,14 +105,19 @@ class InputTextFormField extends StatelessWidget {
 
   labelStyle: TextStyle(
     color: Theme.of(context).colorScheme.primary,
-    fontSize: 14.r,
+    fontSize: 12.r,
   ),
    hintText: hintText,
   hintStyle: TextStyle(
-    color: Colors.grey[50],
+    color: Colors.grey[500],
     fontSize: 14.r,
   ),
-  contentPadding: EdgeInsets.only(left: 10.w,right:10.w, bottom:3.h), // remove default padding so hint is exactly centered
+    contentPadding: EdgeInsets.only(
+      top: 12.h,
+      bottom: 12.h,
+      right: Get.locale?.languageCode == 'en' ? 0 : 5.h,
+      left: Get.locale?.languageCode == 'en' ?  5.h : 0,
+    ),
   
   // Align hint and input text to center
   alignLabelWithHint: true,

@@ -7,6 +7,7 @@ import 'package:my_house_app/app/core/theme/colors.dart';
 import 'package:my_house_app/app/data/models/arhcitect_model.dart';
 import 'package:my_house_app/app/data/services/api_endpoints.dart';
 import 'package:my_house_app/app/modules/architects/controllers/arhcitects_controller.dart';
+import 'package:my_house_app/app/modules/auth/controllers/auth_controller.dart';
 import 'package:my_house_app/app/widgets/responsive_buttun.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -32,6 +33,8 @@ String? _getFullImageUrl(String? rawUrl) {
   Widget build(BuildContext context) {
     final imageUrl = _getFullImageUrl(architect.imageUrl);
     final ArchitectsController controller = Get.find<ArchitectsController>();
+    final authController = Get.find<AuthController>();
+
 
 
     return GestureDetector(
@@ -84,6 +87,32 @@ String? _getFullImageUrl(String? rawUrl) {
                 ),
               ),
           ),
+        FutureBuilder<bool>(
+      future: authController.isAdmin(authController),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const SizedBox.shrink(); // while checking
+        }
+        if (snapshot.hasData && snapshot.data == true) {
+          return Positioned(
+            top: 10.h,
+            right: 8.w,
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.secondary,
+                borderRadius: BorderRadius.circular(8.r),
+              ),
+              child: Text(
+                architect.id.toString(),
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+            ),
+          );
+        }
+        return const SizedBox.shrink(); // not admin → hide widget
+      },
+    ),
 
           Positioned(
             bottom: 1.h,
@@ -121,6 +150,7 @@ String? _getFullImageUrl(String? rawUrl) {
                 overflow: TextOverflow.ellipsis,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
+                  color: Colors.black
                   
                 ),
               ),
@@ -129,7 +159,7 @@ String? _getFullImageUrl(String? rawUrl) {
           Row(
             children: [
               Text(
-                architect.specialization,
+                architect.specialization ?? 'No specialization',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: Theme.of(context).textTheme.labelSmall!.copyWith(
@@ -166,7 +196,7 @@ String? _getFullImageUrl(String? rawUrl) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.white,
+      backgroundColor:Theme.of(context).colorScheme.primaryContainer,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
       ),
@@ -189,11 +219,7 @@ String? _getFullImageUrl(String? rawUrl) {
               children: [
                 ClipOval(
                   child: imageUrl == null
-                      ? Image.network(
-                          'https://img.freepik.com/premium-photo/girl-architect-engineer-holds-design-plan-her-hands-smiles-girl-designer-projects-design_429338-611.jpg',
-                          width: 120.w,
-                          height: 120.w,
-                          fit: BoxFit.cover)
+                      ? null
                       : FadeInImage.assetNetwork(
                           placeholder: 'assets/images/placeholder_blur.png',
                           image: imageUrl!,
@@ -213,15 +239,15 @@ String? _getFullImageUrl(String? rawUrl) {
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 SizedBox(height: 32.h),
-                _buildInfoRow("specialization".tr, architect.specialization, context),
-                _buildInfoRow("university".tr, architect.university, context),
-                _buildInfoRow("country".tr, architect.country, context),
-                _buildInfoRow("city".tr, architect.city, context),
+                _buildInfoRow("specialization".tr, architect.specialization ?? 'No specialization', context),
+                _buildInfoRow("university".tr, architect.university ?? 'No uni', context),
+                _buildInfoRow("country".tr, architect.country?? 'No country', context),
+                _buildInfoRow("city".tr, architect.city?? 'No city', context),
                 if (architect.experience != null)
                   _buildInfoRow("experience".tr, architect.experience!, context),
-                _buildInfoRow("languages".tr, architect.languages, context),
+                _buildInfoRow("languages".tr, architect.languages?? 'No lang', context),
                 _buildInfoRow("yearsExperience".tr, "${architect.yearsExperience} سنوات", context),
-                _buildPhoneRow("phone".tr, architect.phone, context),
+                _buildPhoneRow("phone".tr, architect.phone?? 'No phone', context),
                 SizedBox(height: 24.h),
               ],
             ),
@@ -232,7 +258,7 @@ String? _getFullImageUrl(String? rawUrl) {
         ResponsiveButton(
           onPressed: () {
             controller.openWhatsApp(
-      architect.phone, 
+      architect.phone?? 'No phone', 
       
     );
 
@@ -249,7 +275,7 @@ String? _getFullImageUrl(String? rawUrl) {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('buttons_chat_on_whatsapp'.tr),
+              Text('buttons_chat_on_whatsapp'.tr,style: TextStyle(color:Colors.black)),
               SizedBox(width: 30.w),
               Icon(Icons.person, color: AppColors.fontcolor, size: 30.sp),
             ],
@@ -277,7 +303,8 @@ String? _getFullImageUrl(String? rawUrl) {
           Expanded(
               flex: 5,
               child: Text(value,
-                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppColors.fontcolor),)),
+                 style: Theme.of(context).textTheme.bodyMedium!
+                 .copyWith(color:Theme.of(context).colorScheme.onPrimaryContainer),)),
         ],
       ),
     );

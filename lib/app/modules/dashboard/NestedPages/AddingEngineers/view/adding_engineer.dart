@@ -17,20 +17,20 @@ class AddingEngineer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primary,
-      appBar: CustomAppBar(),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              LocaleKeys.adding_engineer_title.tr,
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    color: AppColors.fontcolor,
-                    fontWeight: FontWeight.bold,
-                  ),
-            ),
+  backgroundColor: Theme.of(context).colorScheme.primary,
+  appBar: CustomAppBar(),
+  body: Padding(
+    padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          LocaleKeys.adding_engineer_title.tr,
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                color: Theme.of(context).colorScheme.error,
+                fontWeight: FontWeight.bold,
+              ),
+        ),
             SizedBox(height: 24.h),
 
             // Step progress is reactive

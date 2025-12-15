@@ -8,8 +8,6 @@ class DashBoardController extends GetxController {
   final List<String> cardPages = [
     Routes.PROPERTYMANAGER,
     Routes.DeletingTool,
-    Routes.LISTINGHOME,
-    Routes.PROPERTYMANAGER,
     Routes.AddingEngineer,
     Routes.DeletingEngineer,
     Routes.OTHERSMANAGER,

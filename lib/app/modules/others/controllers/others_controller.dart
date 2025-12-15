@@ -31,7 +31,7 @@ void fetchOthersData({String? location, String? query, int? limit}) async {
 
     othersList.assignAll(limitedOthers);
   } catch (e) {
-    Get.snackbar('Error', 'Failed to load others');
+    //Get.snackbar('Error', 'Failed to load others');
     print('Fetch error: $e');
   } finally {
     isLoading.value = false;

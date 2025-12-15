@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_house_app/app/modules/askforad/views/widgets/appbar.dart';
 import 'package:my_house_app/app/modules/askforad/views/widgets/post_property_page.dart';
 
 class AskForAdPage extends StatelessWidget {
@@ -6,6 +7,10 @@ class AskForAdPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const PostPropertyPage();
+    return Scaffold(
+      appBar: DetailedAppBar(),
+      body: const PostPropertyPage());
   }
 }
+
+

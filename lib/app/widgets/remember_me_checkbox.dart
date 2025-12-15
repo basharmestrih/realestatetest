@@ -17,9 +17,9 @@ RememberMeCheckbox({super.key, required this.isChecked, this.activeColor});
         children: [
           SizedBox(width:15.w,
             child: Checkbox(
-              //activeColor: AppColors.primary,
-              checkColor: AppColors.black,
-              fillColor: MaterialStateProperty.all(AppColors.lightGrey),
+              activeColor: AppColors.secondary,
+              checkColor: AppColors.secondary,
+              fillColor: MaterialStateProperty.all(AppColors.black),
                   
              
               value: isChecked.value,
@@ -30,8 +30,8 @@ RememberMeCheckbox({super.key, required this.isChecked, this.activeColor});
           ),
           SizedBox(width:15.w),
           Text('labels_remember_me'.tr,
-              style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                color: Colors.grey[500]
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                color: Colors.black,
               )),
         ],
       ),

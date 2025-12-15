@@ -31,6 +31,7 @@ class LocaleKeys {
   static const ad_label= 'ad_label';
   static const ad_label_ext = 'ad_label_ext';
   static const ad_label_ext2 = 'ad_label_ext2';
+  static const ad_title = 'ad_title';
   static const ourServices = 'ourServices';
   static const propertiesForSale = 'propertiesForSale';
   static const propertiesForRent = 'propertiesForRent';
@@ -55,20 +56,30 @@ class LocaleKeys {
   static const search_label_hint ='search_label_hint';
   static const category_all = 'category_all';
   static const category_damascus = 'category_damascus';
+  static const category_rif_dimashq = 'category_rif_dimashq';
   static const category_aleppo = 'category_aleppo';
-  static const category_lattakia = 'category_lattakia';
   static const category_homs = 'category_homs';
+  static const category_hama = 'category_hama';
+  static const category_lattakia = 'category_lattakia';
   static const category_tartous = 'category_tartous';
   static const category_idleb = 'category_idleb';
   static const category_sweidaa = 'category_sweidaa';
+  static const category_daraa = 'category_daraa';
+  static const category_deir_ezzor = 'category_deir_ezzor';
+  static const category_raqqa = 'category_raqqa';
+  static const category_hasaka = 'category_hasaka';
+  static const category_quneitra = 'category_quneitra';
   static const for_sale_category = 'for_sale_category';
   static const for_rent_category = 'for_rent_category';
+  static const show_more_button = 'show_more_button';
+
   static const contact_seller_button = 'contact_seller_button';
 
   
   
   //property details
   static const property_details_title = 'property_details_title';
+  static const player_button_text = 'player_button_text';
   static const label_features = 'label_features';
   static const furnitured_category = 'furnitured_category';
   static const not_furnitured_category = 'not_furnitured_category';
@@ -152,6 +163,7 @@ class LocaleKeys {
   static const add_eng_card = 'add_eng_card';
   static const add_others_card = 'add_others_card';
   static const delete_others_card = 'delete_others_card';
+  static const offer_type = 'offer_type';
 
   //ADD ENGINEERING
   static const basic_title = "basic_title";
@@ -178,6 +190,8 @@ class LocaleKeys {
     static const submit_engineer_button = 'submit_engineer_button';
   //DELETE HOUSE
   static const deleting_tip = 'deleting_tip';
+    static const engineering_deleting_tip = 'engineering_deleting_tip';
+
   static const others_deleting_tip = 'others_deleting_tip';
   static const delete_button = 'delete_button';
   //LOGIN PAGE
@@ -244,6 +258,8 @@ class LocaleKeys {
   static const buttons_sign_in_google = 'buttons_sign_in_google';
   static const buttons_chat_on_whatsapp = 'buttons_chat_on_whatsapp';
   //ASK FOR AD PAGE
+      static const askforsell_title = 'askforsell_title';
+
     static const first_body_askforsell = 'first_body_askforsell';
    static const second_body_askforsell = 'second_body_askforsell';
   static const contact_us_button = 'contact_us_button';
@@ -256,7 +272,7 @@ class Locales {
     //bar items
     'bar_label_1':  "الصفحة الرئيسية",
     'bar_label_2':  "عقارات",
-    'bar_label_3':  "متاجر / مطاعم",
+    'bar_label_3':  "منشآت تجارية",
     'bar_label_4':  "الحصول على استشارة",
     //sideMenu
 
@@ -265,7 +281,7 @@ class Locales {
     'properties_sale': 'عقارات للبيع',
     'properties_rent': 'عقارات للإيجار',
     'lands_for_sale': 'أراضي',
-    'factories_for_sale': 'مطاعم',
+    'factories_for_sale': 'منشآت تجارية',
     'farms_sale': 'مزارع للبيع',
     'add_property': 'أضف عقاراً للبيع',
     'ask_consultant': 'اسأل مستشارًا',
@@ -275,6 +291,7 @@ class Locales {
      'ad_label': 'أعلن هنا',
      'ad_label_ext' : 'كن مميزا',
      'ad_label_ext2' : 'مميز',
+      'ad_title': 'اعلان مميز',
      'ask_button' : 'اسأل مستشاراً',
       'image_label1': 'عم',
       'image_label2': 'بتدور',
@@ -293,24 +310,35 @@ class Locales {
     'noHousesFound': 'لا توجد عقارات',
     
     //property
+        // Arabic (ar)
+'add_property_instruction': 'لإضافة عقارك للبيع اذهب إلى قسم ',
+'customer_service': 'خدمة الزبائن',
     'button_search': "بحث",
     'search_label_hint': "الاسم/الموقع/العنوان....",
-    'category_all': "الكل",
-    
-    "category_damascus": "دمشق",
-    "category_aleppo": "حلب",
-    "category_lattakia": "اللاذقية",
-    "category_homs": "حمص",
-    "category_tartous": "طرطوس",
-    "category_idleb": "إدلب",
-    "category_sweidaa": "السويداء",
+      'category_all': 'الكل',
+  'category_damascus': 'دمشق',
+  'category_rif_dimashq': 'ريف دمشق',
+  'category_aleppo': 'حلب',
+  'category_homs': 'حمص',
+  'category_hama': 'حماة',
+  'category_lattakia': 'اللاذقية',
+  'category_tartous': 'طرطوس',
+  'category_idleb': 'إدلب',
+  'category_sweidaa': 'السويداء',
+  'category_daraa': 'درعا',
+  'category_deir_ezzor': 'دير الزور',
+  'category_raqqa': 'الرقة',
+  'category_hasaka': 'الحسكة',
+  'category_quneitra': 'القنيطرة',
     'for_sale_category': "للبيع",
     'for_rent_category': "للأجار",
-     'contact_seller_button': 'تواصل مع البائع',
+     'show_more_button': "عرض المزيد",
+      'contact_seller_button': 'تواصل مع الوسيط',
 
 
     //property details
     'property_details_title':'معلومات العقار',
+     'player_button_text': 'مشاهدة الاعلان',
     'label_features': 'المزايا الرئيسية ',
     'furnitured_category': "مفروش",
     'not_furnitured_category': "غير مفروش",
@@ -339,6 +367,8 @@ class Locales {
 
     "bathrooms_label": "الحمامات",
     "bathrooms_hint": "أدخل عدد الحمامات",
+    "offer_type":  "نوع العرض",
+
 
     "area_label": "المساحة",
     "area_hint": "أدخل مساحة العقار بالمتر المربع",
@@ -398,6 +428,7 @@ class Locales {
     'show_house_card' : 'عرض العقارات',
     'add_eng_card' : 'أضف مهندس',
     'deleting_tip': 'يمكنك حذف أي عقار تريدها بإدخال معرف عقار',
+    'engineering_deleting_tip': 'يمكنك حذف اي مهندس من قاعدة البيانات عبر إدخال المعرف الخاص به',
     'others_deleting_tip': 'يمكنك حذف أي متجر/أرض تريدها بإدخال معرف عقار',
     'add_others_card': 'أضف متجر/أرض',
     'delete_others_card': 'حذف متجر/أرض',
@@ -492,9 +523,9 @@ class Locales {
     'buttons_sign_in_google': 'تسجيل الدخول عن طريق Google',
     'buttons_chat_on_whatsapp': 'تواصل عبر واتساب',
     //ASK FOR AD PAGE 
+    "askforsell_title": "نشر عرض للبيع",
   "first_body_askforsell": "بكبسة زر فيك تنشر اي عقار عنا وبدون اي رسوم!!!!",
   "second_body_askforsell": "ما عليك سوى الاتصال بالمسؤولين لدينا عبر WhatsApp أو Gmail أو مكالمة هاتفية.",
-  "contact_us_button": "اتصل بنا",
   //"post_property": "نشر عقار"
   };
   static const en_US = {
@@ -519,6 +550,7 @@ class Locales {
       'ad_label': 'Advertise here',
       'ad_label_ext' : 'Be Special',
       'ad_label_ext2' : 'Special',
+      'ad_title': 'Special Ad',
       'ask_button': 'Ask a consultant',
       'image_label1': 'You',
       'image_label2': 'need',
@@ -529,7 +561,7 @@ class Locales {
      'propertiesForSale': 'Properties for Sale',
      'propertiesForRent': 'Properties for Rent',
      'lands_for_sale': 'Lands',
-     'factories_for_sale': 'Factories',
+     'factories_for_sale': 'Shops',
      'latestAddedProperties': 'Latest Added Properties',
       'roomsnumber': 'Rooms Count',
       'distance': 'Home Distance',
@@ -538,22 +570,36 @@ class Locales {
 
      'noHousesFound': 'No houses found',
     //property
+
+
+    'add_property_instruction': 'To add your property for sale, visit ',
+    'customer_service': 'Customer Service',
     'button_search': 'Search',
     'search_label_hint': 'Name/Location/Address',
-    'category_all': "All",
-    "category_damascus": "Damascus",
-    "category_aleppo": "Aleppo",
-    "category_lattakia": "Lattakia",
-    "category_homs": "Homs",
-    "category_tartous": "Tartous",
-    "category_idleb": "Idleb",
-    "category_sweidaa": "Sweidaa",
+  'category_all': 'All',
+  'category_damascus': 'Damascus',
+  'category_rif_dimashq': 'Rif Dimashq',
+  'category_aleppo': 'Aleppo',
+  'category_homs': 'Homs',
+  'category_hama': 'Hama',
+  'category_lattakia': 'Latakia',
+  'category_tartous': 'Tartous',
+  'category_idleb': 'Idlib',
+  'category_sweidaa': 'As-Suwayda',
+  'category_daraa': 'Daraa',
+  'category_deir_ezzor': 'Deir ez-Zor',
+  'category_raqqa': 'Raqqa',
+  'category_hasaka': 'Al-Hasakah',
+  'category_quneitra': 'Quneitra',
     'for_sale_category': "For Sale",
     'for_rent_category': "For Rent",
-     'contact_seller_button': 'Contact Seller',
+    'show_more_button': "Show More",
+     'contact_seller_button': 'Contact Dealer',
 
     //property details
     'property_details_title':'Property Details',
+    'player_button_text': 'Watch Trailer',
+
     'label_features':'Main features',
     'label_what_will_you_get':'What will you get',
     'furnitured_category': "Furnitured",
@@ -569,6 +615,7 @@ class Locales {
     'show_house_card' : 'Show Properties',
     'add_eng_card' : 'Add Architect',
     'deleting_tip': 'You can delete any property you want by entering id of the property',
+    'engineering_deleting_tip': 'You can delete any engineer from database by emtering its id',
     'others_deleting_tip': 'You can delete any Shop/Land you want by entering id of the property',
     'add_others_card': 'Add Shop/Land',
     'delete_others_card': 'Delete Shop/Land',
@@ -653,6 +700,7 @@ class Locales {
     "Page_title": "Shop Details",
     "label_market_specs": "Technical Specifications",
     "dimension_unit": "Meter",
+     "offer_type": "Offer type",
 
         //ARCH PAGE
     'specialization' : 'Specialization',
@@ -722,6 +770,7 @@ class Locales {
     'buttons_sign_in_google': 'Sign-in with Google',
     'buttons_chat_on_whatsapp':'Chat on whatsapp',
     //ASK FOR AD PAGE
+    'askforsell_title': "Post an offer",
   'first_body_askforsell': "Just one click you can post your property without any fees!!!!",
   'second_body_askforsell': "Just contact our admins via WhatsApp, Gmail, or a phone call.",
   'contact_us_button': "Contact Us",

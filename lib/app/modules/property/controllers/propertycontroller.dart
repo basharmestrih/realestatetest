@@ -26,10 +26,12 @@ void fetchHouses({String? location, String? query, int? limit}) async {
     final limitedHouses = (limit != null && limit > 0)
         ? houses.take(limit).toList()
         : houses;
+    // ✅ Sort houses by id descending (bigger → smaller)
+    limitedHouses.sort((a, b) => b.id.compareTo(a.id));
 
     houseList.assignAll(limitedHouses);
   } catch (e) {
-    Get.snackbar('Error', 'Failed to load houses');
+    //Get.snackbar('Error', 'Failed to load houses');
     print('Fetch error: $e');
   } finally {
     isLoading.value = false;

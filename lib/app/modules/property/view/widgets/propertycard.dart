@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:my_house_app/app/core/theme/colors.dart';
+import 'package:my_house_app/app/modules/auth/controllers/auth_controller.dart';
 import 'package:my_house_app/app/routes/app_pages.dart';
 import 'package:my_house_app/app/widgets/responsive_buttun.dart';
 import 'package:my_house_app/generated/locales.g.dart';
@@ -9,6 +10,7 @@ import 'package:my_house_app/generated/locales.g.dart';
 class PropertyCard extends StatelessWidget {
   final List<String> imageUrls;
   final String? videoUrl;
+  final int id;
   final String location;
   final String address;
   final String name;
@@ -27,6 +29,7 @@ class PropertyCard extends StatelessWidget {
   const PropertyCard({
     super.key,
     required this.imageUrls,
+    required this.id,
     this.videoUrl,
     required this.location,
     required this.address,
@@ -44,7 +47,7 @@ class PropertyCard extends StatelessWidget {
     this.mainFeatures,
   });
 
-  Widget _buildLabelValue(String label, String value) {
+  Widget _buildLabelValue(String label, String value, context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 2.h),
       child: Row(
@@ -55,8 +58,8 @@ class PropertyCard extends StatelessWidget {
               label,
               style: TextStyle(
                 fontWeight: FontWeight.w500,
-                fontSize: 14.sp,
-                color: Colors.grey[700],
+                fontSize: 12.sp,
+                color:Theme.of(context).colorScheme.onPrimaryContainer,
               ),
             ),
           ),
@@ -68,7 +71,7 @@ class PropertyCard extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: 14.sp,
-                color: AppColors.grey,
+                color: AppColors.secondaryfontcolor,
               ),
             ),
           ),
@@ -79,7 +82,10 @@ class PropertyCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authController = Get.find<AuthController>();
+
     return Card(
+      color:Theme.of(context).colorScheme.primaryContainer,
       clipBehavior: Clip.antiAlias,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
       child: Column(
@@ -116,10 +122,40 @@ class PropertyCard extends StatelessWidget {
                         : isRent
                             ? 'for_rent_category'.tr
                             : '',
-                    style: Theme.of(context).textTheme.titleSmall,
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                      color:AppColors.black
+                    ),
                   ),
                 ),
               ),
+              //if for admin only
+               FutureBuilder<bool>(
+      future: authController.isAdmin(authController),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const SizedBox.shrink(); // while checking role
+        }
+        if (snapshot.hasData && snapshot.data == true) {
+          // ✅ Show only for admin
+          return Positioned(
+            top: 12.h,
+            left: 12.w,
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.secondary,
+                borderRadius: BorderRadius.circular(8.r),
+              ),
+              child: Text(
+                id.toString(),
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+            ),
+          );
+        }
+        return const SizedBox.shrink(); // hide for non-admin
+      },
+    ),
             ],
           ),
 
@@ -135,7 +171,8 @@ class PropertyCard extends StatelessWidget {
                     Flexible(
                       child: Text(
                         location,
-                        style: Theme.of(context).textTheme.titleMedium,
+                        style: Theme.of(context).textTheme.titleLarge!
+                        .copyWith(color: Theme.of(context).colorScheme.error,),
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
@@ -170,26 +207,29 @@ class PropertyCard extends StatelessWidget {
 
                 // Rooms, Ground Distance, Floors, Building Age
                 if (roomsNumber != null)
-                  _buildLabelValue(LocaleKeys.roomsnumber.tr, roomsNumber.toString()),
+                  _buildLabelValue(LocaleKeys.roomsnumber.tr, roomsNumber.toString(),context),
                 if (groundDistance != null)
-                  _buildLabelValue(LocaleKeys.area_label.tr, groundDistance.toString()),
+                  _buildLabelValue(LocaleKeys.area_label.tr, groundDistance.toString(),context),
                 if (floorsNumber != null)
-                  _buildLabelValue(LocaleKeys.floors_number.tr, floorsNumber.toString()),
+                  _buildLabelValue(LocaleKeys.floors_number.tr, floorsNumber.toString(),context),
                 if (buildingAge != null)
-                  _buildLabelValue(LocaleKeys.building_age.tr, buildingAge.toString()),
+                  _buildLabelValue(LocaleKeys.building_age.tr, buildingAge.toString(),context),
 
                 // Main Features
                 if (mainFeatures != null && mainFeatures!.isNotEmpty)
-                  _buildLabelValue(LocaleKeys.features.tr, mainFeatures!.take(3).join(", ")),
+                  _buildLabelValue(LocaleKeys.features.tr, mainFeatures!.take(2).join(", "),context),
 
-                SizedBox(height: 2.h),
+                SizedBox(height: 12.h),
 
                 // Property Name / Description
                 Text(
                   name,
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith
+                  (color: AppColors.secondaryfontcolor,
+                  fontSize: 20.r,
+                  fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 10.h),
+                SizedBox(height: 16.h),
 
                 // Contact Seller Button
                 ResponsiveButton(
@@ -220,7 +260,7 @@ class PropertyCard extends StatelessWidget {
                     );
                   },
                   child: Text(
-                    'contact_seller_button'.tr,
+                    'show_more_button'.tr,
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
                   ),
                 ),

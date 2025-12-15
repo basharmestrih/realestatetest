@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:my_house_app/app/core/theme/colors.dart';
 import '../controllers/splash_controller.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class SplashView extends GetView<SplashController> {
   const SplashView({super.key});
@@ -10,16 +11,16 @@ class SplashView extends GetView<SplashController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white, // set background to white
+      backgroundColor: AppColors.secondary,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Logo image
           Image.asset(
-          'assets/Logo.png', // Replace with your logo path
-          width: 300.w, // Adjust width as needed
-          height: 300.h, // Adjust height as needed
+          'assets/lastlogo.png', 
+          width: 400.w, 
+          height: 400.h, 
         ),
 
 
@@ -39,10 +40,11 @@ class SplashView extends GetView<SplashController> {
             const SizedBox(height: 20),
 
             // Circular progress indicator
-            const CircularProgressIndicator(
-              color: Colors.black,
-              strokeWidth: 3,
-            ),
+
+const SpinKitFadingCircle(
+  color: Colors.black,
+  size: 100.0,
+),
           ],
         ),
       ),

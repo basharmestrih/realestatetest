@@ -18,7 +18,8 @@ class PropertyFeatures extends StatelessWidget {
       children: [
         Text(
           'label_features'.tr,
-        style: Theme.of(context).textTheme.bodyMedium!.copyWith(color:AppColors.fontcolor),
+        style: Theme.of(context).textTheme.titleLarge!
+        .copyWith(color:Theme.of(context).colorScheme.onPrimaryContainer,),
 
         ),
         const SizedBox(height: 6),
@@ -30,13 +31,14 @@ class PropertyFeatures extends StatelessWidget {
                    Icon(
                   Icons.check_sharp,
                   weight: 2000,
-                  color: AppColors.black,
+                  color:Theme.of(context).colorScheme.error,
                   size: 25.sp,
                 ),
                  const SizedBox(width: 8),
                  Text(
                   feature,
-                  style: Theme.of(context).textTheme.bodyMedium,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(color:
+                  Theme.of(context).colorScheme.onSecondaryContainer),
                 ),
                
                 

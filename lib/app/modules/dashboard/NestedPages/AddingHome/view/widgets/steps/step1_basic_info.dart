@@ -19,7 +19,7 @@ class Step1BasicInfo extends StatelessWidget {
               controller.titleController),
           SizedBox(height: 16.sp),
           InputField(LocaleKeys.description_label.tr,
-              LocaleKeys.description_hint.tr, controller.descriptionController),
+              LocaleKeys.description_hint.tr, controller.descriptionController,isMultiline: true),
           SizedBox(height: 16.sp),
           InputField(LocaleKeys.price_label.tr, LocaleKeys.price_hint.tr,
               controller.priceController),

@@ -15,7 +15,8 @@ class OthersLocationAddressWidget extends StatelessWidget {
       children: [
         Icon(Icons.location_on_outlined, size:26.sp, color: AppColors.red,),
         Text(location,
-             style: Theme.of(context).textTheme.titleLarge!.copyWith(color:AppColors.fontcolor),
+             style: Theme.of(context).textTheme.titleLarge!
+             .copyWith(color: Theme.of(context).colorScheme.onPrimaryContainer),
             ),
         SizedBox(width:10.w),
         Text(address,
